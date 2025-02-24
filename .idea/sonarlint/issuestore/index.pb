@@ -5,8 +5,6 @@ U
 %src/main/java/web/config/AppInit.java,8\0\80eab4da9923cdcbe5b2defa94177731b9a847e5
 W
 'src/main/java/web/config/WebConfig.java,3\e\3efd7d6e4f4347a5e7aa33a6e6490dc8c1f9ed56
-R
-"src/webapp/WEB-INF/pages/cars.html,4\8\4859eab7b0e83c9c499abc9541b15346ba2bf6b5
 V
 &src/main/java/web/config/DSConfig.java,d\d\dde81389c4915fb759d6090994a476d9fdff36b1
 Q
@@ -25,15 +23,7 @@ V
 &src/main/java/web/dao/UserDAOImpl.java,1\7\17c14bc272e1db23901e26d1707dc6bfcadc795a
 ^
 .src/main/java/web/service/UserServiceImpl.java,3\b\3bf08198fa341dba7689d251677f6a1bbb1e2125
-V
-&src/webapp/WEB-INF/pages/editPage.html,4\6\46cac5599124a701803061717d140376b64faf59
-U
-%src/webapp/WEB-INF/pages/addUser.html,9\d\9d81d8c3feb923c243478c6fd14f42b20ed9d88a
-V
-&src/webapp/WEB-INF/pages/usersPage.jsp,7\d\7d0b1d2d286c04bf1166a20a2106276a9e457990
-W
-'src/webapp/WEB-INF/pages/usersPage.html,2\a\2a1fc5841b0c92073df349cdcc535abf85dd5706
+Q
+!src/webapp/WEB-INF/pages/add.html,e\9\e9be45a98bcc1e7bec67b1dde5aa8334dbfd1e5b
 R
-"src/webapp/WEB-INF/pages/index.jsp,2\5\259c9866256f7fada62d2b56f87713e4a0112bf5
-U
-%src/webapp/WEB-INF/pages/new_user.jsp,f\f\ffef86371c4c36f7c1d2dc1c9fab4304d9f45da0
+"src/webapp/WEB-INF/pages/edit.html,9\1\91fab5bfc20ad6d95e9f1b7b152d5c105fa4abf5
