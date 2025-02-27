@@ -1,19 +1,15 @@
 package web.dao;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import web.model.User;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
-@Transactional
+@Repository
 public class UserDAOImpl implements UserDAO {
-
-    public UserDAOImpl() {
-    }
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -23,22 +19,35 @@ public class UserDAOImpl implements UserDAO {
         return entityManager.createQuery("from User", User.class).getResultList();
     }
 
-    @Transactional
     @Override
-    public void saveUser(User user) {
-        User managed = entityManager.merge(user);
-        entityManager.persist(managed);
+    public void addUser(User user) {
+        entityManager.persist(user);
     }
 
-    @Transactional
     @Override
-    public void deleteUser(User user) {
-        User managed = entityManager.merge(user);
-        entityManager.remove(managed);
+    public void updateUser(User user) {
+        User user1 = getById(user.getId());
+        if (user1 == null) {
+            throw new EntityNotFoundException();
+        }
+        entityManager.merge(user);
     }
 
     @Override
     public User getById(Long id) {
-        return entityManager.find(User.class, id);
+        User user = entityManager.find(User.class, id);
+        if (user == null) {
+            throw new EntityNotFoundException();
+        }
+        return user;
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        User user = getById(id);
+        if (user == null) {
+            throw new EntityNotFoundException();
+        }
+        entityManager.remove(user);
     }
 }

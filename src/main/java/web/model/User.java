@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -13,16 +16,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "Field should not be empty")
+    @Size(min = 2, max = 30, message = "Should be between 2 and 30 chars")
     private String name;
-    private String lastname;
+
+    @NotEmpty(message = "Field should not be empty")
+    @Email(message = "Should be a valid email")
     private String email;
 
     public User() {
     }
 
-    public User(String name, String lastname, String email) {
+    public User(String name, String email) {
         this.name = name;
-        this.lastname = lastname;
         this.email = email;
     }
 
@@ -40,14 +47,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
     }
 
     public String getEmail() {
